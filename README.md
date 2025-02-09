@@ -28,7 +28,7 @@
 
 Please cite our paper if you use this project in your research:
 
-* [EPIC: A Lightweight LiDAR-Based UAV Exploration Framework for Large-Scale Scenarios](https://arxiv.org/pdf/2410.14203.pdf)).
+* [EPIC: A Lightweight LiDAR-Based UAV Exploration Framework for Large-Scale Scenarios](https://arxiv.org/pdf/2410.14203.pdf).
 
 ```
 @article{geng2024epic,
