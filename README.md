@@ -22,5 +22,20 @@
 
 <p align="center">
   <img src="misc/campus-min.gif" width = 60% height = 60%/>
+  <img src="misc/forest.gif" width = 60% height = 60%/>
+  <img src="misc/corridor.gif" width = 60% height = 60%/>
 </p>
 
+Please cite our paper if you use this project in your research:
+
+* [EPIC: A Lightweight LiDAR-Based UAV Exploration Framework for Large-Scale Scenarios](https://arxiv.org/pdf/2410.14203.pdf)).
+
+```
+@article{geng2024epic,
+  title={EPIC: A Lightweight LiDAR-Based UAV Exploration Framework for Large-Scale Scenarios},
+  author={Geng, Shuang and Ning, Zelin and Zhang, Fu and Zhou, Boyu},
+  journal={arXiv preprint arXiv:2410.14203},
+  year={2024}
+}
+```
+Please kindly star ⭐️ this project if it helps you. We take great efforts to develop and maintain it 😁.
