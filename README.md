@@ -17,6 +17,9 @@
   <a href="[https://www.bilibili.com/video/BV1Fr421j7oC/?spm_id_from=333.999.0.0&vd_source=0af61c122e5e37c944053b57e313025a](https://www.bilibili.com/video/BV1nrx5eaESY/?spm_id_from=333.1387.homepage.video_card.click&vd_source=07945b0b56417e213633c9332f4f4716)"><img alt="Video" src="https://img.shields.io/badge/BiliBili-Video-purple"/></a>
 </div>
 
+## 💡 News
+The code will be released soon. Stay tuned!
+
 ## 📜 Introduction
 **EPIC** (**E**xploring on **P**o**I**nt **C**louds) is a lightweight LiDAR-based UAV exploration framework that directly exploits point cloud data to explore large-scale environments. Experimental results demonstrate that our framework achieves faster exploration while significantly reducing memory consumption. (Click the image to view the video)
 
@@ -35,3 +38,5 @@ Please cite our paper if you use this project in your research:
 }
 ```
 Please kindly star ⭐️ this project if it helps you. We take great efforts to develop and maintain it 😁.
+
+
