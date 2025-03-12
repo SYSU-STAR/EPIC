@@ -15,7 +15,7 @@
         <arg name="map_name" value="$(find map_generator)/resource/factory.pcd"/>
         <!-- <arg name="map_name" value="$(find map_generator)/resource/cave.pcd" /> -->
         <arg name="downsample_resolution" value="0.1" />
-        <arg name="use_uav_extra_model" value="1" />
+        <arg name="use_uav_extra_model" value="0" />
 
         <node pkg="map_generator" name="map_pub" type="map_pub" output="screen"
                 args="$(arg map_name)">

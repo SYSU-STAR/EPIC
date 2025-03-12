@@ -85,7 +85,7 @@ cascadePID::~cascadePID()
 void cascadePID::setdroneid(int id){
     droneid = id;
 
-    pkg_path = ros::package::getPath("cascadePID");
+    pkg_path = ros::package::getPath("cascade_pid");
     pkg_path.append("/data/log_" + std::to_string(droneid) + ".txt");
     std::cout << "\nFound pkg_path = " << pkg_path << std::endl;
     myfile.open(pkg_path.c_str(), std::ios_base::out);
