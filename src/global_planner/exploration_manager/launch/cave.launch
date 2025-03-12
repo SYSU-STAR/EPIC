@@ -1,0 +1,14 @@
+<launch>
+  <arg name="map_name" value="cave" />
+
+  <arg name="config_file" default="$(arg map_name).yaml" />
+
+  <include file="$(find epic_planner)/launch/algorithm.xml">
+    <arg name="config_file" value="$(arg config_file)" />
+  </include>
+  <node pkg="plan_manage" name="traj_server" type="traj_server" output="screen">
+    <remap from="/position_cmd" to="/planning/pos_cmd" />
+  </node>
+  <include file="$(find epic_planner)/launch/simulation_$(arg map_name).launch"/>
+  
+</launch>

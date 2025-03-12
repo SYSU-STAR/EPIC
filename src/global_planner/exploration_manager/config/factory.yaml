@@ -1,0 +1,83 @@
+#topic param:
+odometry_topic: /quad_0/lidar_slam/odom
+cloud_topic: /quad0_pcl_render_node/cloud
+global_planning/w_vdir: 0.0
+global_planning/w_yawdir: 0.0
+global_planning/w_firstnode: 0.2
+#viz
+bubble_topo/view_graph: false
+FrontierManager/view_cluster: false
+FrontierManager/view_frt: true
+# graph
+bubble_topo/min_x: 1.11
+bubble_topo/min_y: 1.11
+bubble_topo/min_z: 0.51
+bubble_topo/known_bubble_min_radius: 0.65
+bubble_topo/unknown_bubble_min_radius: 0.65
+bubble_topo/init_region_size_x: 3.3
+bubble_topo/init_region_size_y: 3.3
+bubble_topo/init_region_size_z: 2.0
+bubble_topo/cube_discrete_size: 0.4
+bubble_topo/odom_node_distance: 3.0
+bubble_astar/safe_distance: 0.9
+# map param
+max_update_region_num: 100
+frontier/candidate_dphi: 0.26
+frontier/candidate_znum: 3
+lidar_perception/fov_up: 52.0
+lidar_perception/fov_down: -7.0
+lidar_perception/lidar_pitch: 40.0
+lidar_perception/fov_viewpoint_up: 48.0
+lidar_perception/fov_viewpoint_down: -5.0
+lidar_perception/max_ray_length: 30
+parallel_astar/update_connection_timeout: 0.001
+parallel_astar/insert_node_timeout: 0.002
+FrontierManager/cell_size: 0.4
+FrontierManager/noise_cell_range: 1
+FrontierManager/good_observation_direction_score: 0.8 # os64
+FrontierManager/good_observation_force_trust_length: 4.5
+FrontierManager/good_observation_trust_length: 17.0
+FrontierManager/update_length: 20.0
+FrontierManager/cluster_max_size: 6.5
+FrontierManager/cluster_min_size: 2.0
+FrontierManager/cluster_min_radius: 0.8 # DBSCAN 判断邻居的阈值
+FrontierManager/cluster_direction_radius: -0.0 # cos(theta) > cluster_direction_radius
+FrontierManager/cluster_minmum_point_num: 4
+# 柱形采样
+ViewpointManager/sample_pillar_min_height: -2.0
+ViewpointManager/sample_pillar_max_height: 2.5
+ViewpointManager/sample_pillar_height_layer_num: 6
+ViewpointManager/sample_pillar_min_radius: 2.5
+ViewpointManager/sample_pillar_max_radius: 4.0
+ViewpointManager/sample_pillar_radius_layer_num: 8
+ViewpointManager/sample_pillar_circle_sample_num: 4
+ViewpointManager/local_tsp_size: 10
+# area
+box_num: 1
+box_0/down: [-16, -27, 0.0]
+box_0/up: [13, 26, 4.0]
+dead_area_num: 0
+max_traj_len: 10.0
+DilateRadiusSoft: 0.7 # corrido
+DilateRadiusHard: 0.45 # collision check threshold
+MaxCorridorSize: 4.0
+MaxVelMag: 5.0
+MaxTiltAngle: 1.5 # 最大飞行姿态角度 60°:1.0472 45°:0.7854 30°:0.5236 10°:0.1745
+MinThrust: 15.0
+MaxThrust: 22.0
+VehicleMass: 1.9
+GravAcc: 9.8
+HorizDrag: 0.70
+VertDrag: 0.80
+ParasDrag: 0.01
+SpeedEps: 0.0001
+WeightT: 500.0
+WeightSafeT: 200.0
+ChiVec: [1.1e+5, 1.5e+4, 1.1e+4, 1.1e+5, 1.1e+6] # [pos_weight, vel_weight, omg_weight, theta_weight, thrust_weight]
+SmoothingEps: 0.015
+IntegralIntervs: 32
+RelCostTol: 1.1e-6
+#param for yaw opt
+yaw_max_vel: 4.0 # 角速度限制, 要大
+yaw_rho_vis: 10000.0
+yaw_time_fwd: 2.5

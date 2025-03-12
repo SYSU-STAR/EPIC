@@ -1,0 +1,119 @@
+<launch>
+    <arg name="use_gpu_" value="true"/>
+
+    <arg name="sensing_horizon"/>
+
+    <arg name="drone_num" value="1"/>
+    <!-- <arg name="lidar_pitch" value="0.0"/> -->
+    <arg name="lidar_pitch" value="25.0"/>
+
+    <arg name="frame_id" value="world"/>
+    <arg name="global_cloud_topic" value="/map_generator/global_cloud"/>
+    <arg name="odom_topic" value="/lidar_slam/odom"/>
+
+
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/factory.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/cloud_fixed.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/hotel_adb.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/cmu.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/sysu_forest.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/sysu_indoor.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/sysu_outdoor.pcd"/> -->
+
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/cloud_global3.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/small_forest01cutoff.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/adground.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/Sydney.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/garage.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/garage_large.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/garage_large_adb.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/cmu_adb.pcd"/> -->
+    <arg name="map_name" value="$(find map_generator)/resource/cave2.pcd"/>
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/test_pcd_new.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/cave_circuit_03.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/star_ground.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/star105.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/MBSmost.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/star_tunnel_100.pcd"/> -->
+    
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/chuijin4.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/cmu_indoor.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/cave_s.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/forest.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/test.pcd"/> -->
+    <!-- <arg name="map_name" value="$(find map_generator)/resource/office5.pcd"/> -->
+    <arg name="downsample_resolution" value="0.1"/>
+    <arg name="use_uav_extra_model" value = "1"/>
+
+   <node pkg="map_generator" name="map_pub" type="map_pub" output="screen"
+         args="$(arg map_name)">
+        <param name="add_boundary" value="0"/>
+        <param name="is_bridge" value="0"/>
+        <param name="downsample_res" value="0.01"/> 
+        <param name="map_offset_x" value="0.0"/>   
+        <param name="map_offset_y" value="0.0"/>   
+        <param name="map_offset_z" value="0.0"/>  
+   </node>
+
+    <group if="$(arg use_gpu_)">
+        <node pkg="map_generator" name="map_pub1" type="map_pub" output="screen"
+                args="$(arg map_name)">
+                <param name="downsample_res" value="0.05"/>         
+                <param name="map_offset_x" value="0.0"/>   
+                <param name="map_offset_y" value="0.0"/>   
+                <param name="map_offset_z" value="0.0"/>   
+        </node>  
+    </group>
+    <group unless="$(arg use_gpu_)">
+        <node pkg="map_generator" name="map_pub2" type="map_pub" output="screen"
+                args="$(arg map_name)">
+                <param name="downsample_res" value="$(arg downsample_resolution)"/>
+                <param name="map_offset_x" value="0.0"/>   
+                <param name="map_offset_y" value="0.0"/>   
+                <param name="map_offset_z" value="0.0"/>   
+        </node>  
+    </group>
+
+    <include file="$(find test_interface)/launch/single_drone_with_fuel.xml">
+        <arg name="drone_id" value="0"/>
+        <arg name="uav_num_" value="$(arg drone_num)"/>
+        <arg name="lidar_type" value="mid360"/>
+        <!-- <arg name="lidar_type" value="os128"/> -->
+        <!-- <arg name="init_x_" value="-3.0"/>
+        <arg name="init_y_" value="19.0"/>
+        <arg name="init_z_" value="1.0"/>
+         -->
+        <!-- <arg name="init_x_" value="-5.0"/>
+        <arg name="init_y_" value="3.0"/>
+        <arg name="init_z_" value="2.0"/> -->
+<!-- garage -->
+        <!-- <arg name="init_x_" value="0.0"/>
+        <arg name="init_y_" value="2.0"/>
+        <arg name="init_z_" value="3.0"/> -->
+<!-- cave2 -->
+
+        <!-- <arg name="init_x_" value="5.0"/>
+        <arg name="init_y_" value="0.0"/>
+        <arg name="init_z_" value="2.0"/> -->
+<!-- errt cave2 -->
+        <!-- <arg name="init_x_" value="20.0"/>
+        <arg name="init_y_" value="-38.0"/>
+        <arg name="init_z_" value="2.0"/> -->
+<!-- sysu forest -->
+        <arg name="init_x_" value="5.0"/>
+        <arg name="init_y_" value="0.0"/>
+        <arg name="init_z_" value="1.0"/>
+        <arg name="init_yaw" value="0.0"/>
+        <arg name="lidar_pitch_" value="$(arg lidar_pitch)"/>
+        <arg name="map_name_" value="$(arg map_name)"/>
+        <arg name="downsample_resolution_" value="$(arg downsample_resolution)"/>
+        <arg name="odom_topic" value="$(arg odom_topic)"/>
+        <arg name="use_gpu" value="$(arg use_gpu_)"/>
+        <arg name="use_uav_extra_model_" value="$(arg use_uav_extra_model)"/>
+        <arg name="sensing_horizon" value="$(arg sensing_horizon)"/>
+    </include>
+
+   <!-- <node name="rvizvisualisation" pkg="rviz" type="rviz" output="screen"
+   args="-d $(find test_interface)/config/traj.rviz" /> -->
+
+</launch>

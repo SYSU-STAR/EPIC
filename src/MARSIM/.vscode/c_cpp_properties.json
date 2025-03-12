@@ -1,0 +1,40 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/lin/exploring_on_point_cloud/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/lin/ws_livox/devel/include/**",
+        "/home/lin/exploring_on_point_cloud/src/exploring_on_point_cloud/MARSIM/fuel_planner/active_perception/include/**",
+        "/home/lin/exploring_on_point_cloud/src/exploring_on_point_cloud/MARSIM/cascadePID/include/**",
+        "/home/lin/exploring_on_point_cloud/src/exploring_on_point_cloud/MARSIM/fuel_planner/epic_planner/include/**",
+        "/home/lin/exploring_on_point_cloud/src/frontier_manager/include/**",
+        "/home/lin/exploring_on_point_cloud/src/exploring_on_point_cloud/MARSIM/fuel_planner/generating_corridor/include/**",
+        "/home/lin/exploring_on_point_cloud/src/exploring_on_point_cloud/MARSIM/fuel_planner/utils/lkh_tsp_solver/include/**",
+        "/home/lin/exploring_on_point_cloud/src/exploring_on_point_cloud/MARSIM/fuel_planner/local_sensing/include/**",
+        "/home/lin/exploring_on_point_cloud/src/mars_drone_sim/include/**",
+        "/home/lin/exploring_on_point_cloud/src/exploring_on_point_cloud/MARSIM/fuel_planner/mesh_surface/include/**",
+        "/home/lin/exploring_on_point_cloud/src/exploring_on_point_cloud/MARSIM/fuel_planner/path_searching/include/**",
+        "/home/lin/exploring_on_point_cloud/src/exploring_on_point_cloud/MARSIM/fuel_planner/lidar_map/include/**",
+        "/home/lin/exploring_on_point_cloud/src/exploring_on_point_cloud/MARSIM/fuel_planner/plan_manage/include/**",
+        "/home/lin/exploring_on_point_cloud/src/exploring_on_point_cloud/MARSIM/fuel_planner/poly_traj/include/**",
+        "/home/lin/exploring_on_point_cloud/src/exploring_on_point_cloud/MARSIM/Utils/pose_utils/include/**",
+        "/home/lin/exploring_on_point_cloud/src/exploring_on_point_cloud/MARSIM/Utils/quadrotor_msgs/include/**",
+        "/home/lin/exploring_on_point_cloud/src/exploring_on_point_cloud/MARSIM/fuel_planner/traj_utils/include/**",
+        "/home/lin/exploring_on_point_cloud/src/exploring_on_point_cloud/MARSIM/Utils/uav_utils/include/**",
+        "/home/lin/exploring_on_point_cloud/src/exploring_on_point_cloud/MARSIM/lidar_map/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

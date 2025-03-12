@@ -1,0 +1,96 @@
+<launch>
+  <arg name="use_gpu_" value="true" />
+
+  <arg name="sensing_horizon" value="40" />
+
+  <arg name="drone_num" value="1" />
+  <!-- <arg name="lidar_pitch" value="0.0"/> -->
+  <arg name="lidar_pitch" value="40.0" />
+
+  <arg name="frame_id" value="world" />
+  <arg name="global_cloud_topic" value="/map_generator/global_cloud" />
+  <arg name="odom_topic" value="/lidar_slam/odom" />
+  <arg name="drone_id" value="0" />
+<arg name="downsample_resolution_" value="0.1"/>
+  <arg name="map_name" default="$(find map_generator)/resource/cave2.pcd" />
+
+  <arg name="downsample_resolution" value="0.1" />
+  <arg name="use_uav_extra_model" value="1" />
+
+  <node pkg="map_generator" name="map_pub" type="map_pub" output="screen"
+    args="$(arg map_name)">
+    <param name="add_boundary" value="0" />
+    <param name="is_bridge" value="0" />
+    <param name="downsample_res" value="0.01" />
+    <param name="map_offset_x" value="0.0" />
+    <param name="map_offset_y" value="0.0" />
+    <param name="map_offset_z" value="0.0" />
+  </node>
+
+  <group if="$(arg use_gpu_)">
+    <node pkg="map_generator" name="map_pub1" type="map_pub" output="screen"
+      args="$(arg map_name)">
+      <param name="downsample_res" value="0.05" />
+      <param name="map_offset_x" value="0.0" />
+      <param name="map_offset_y" value="0.0" />
+      <param name="map_offset_z" value="0.0" />
+    </node>
+  </group>
+  <group unless="$(arg use_gpu_)">
+    <node pkg="map_generator" name="map_pub2" type="map_pub" output="screen"
+      args="$(arg map_name)">
+      <param name="downsample_res" value="$(arg downsample_resolution)" />
+      <param name="map_offset_x" value="0.0" />
+      <param name="map_offset_y" value="0.0" />
+      <param name="map_offset_z" value="0.0" />
+    </node>
+  </group>
+
+
+  <node pkg="local_sensing_node" type="opengl_render_node"
+    name="quad$(arg drone_id)_pcl_render_node" output="screen"
+    args="$(arg map_name)">
+    <remap from="~global_map" to="/map_generator/global_cloud" />
+    <remap from="~odometry" to="/quad_$(arg drone_id)/$(arg odom_topic)" />
+
+
+    <param name="drone_id" value="$(arg drone_id)" />
+    <param name="lidar_pitch" value="$(arg lidar_pitch)" />
+    <param name="quadrotor_name" value="quad_$(arg drone_id)" />
+    <param name="uav_num" value="$(arg drone_num)" />
+    <param name="is_360lidar" value="1" />
+    <param name="sensing_horizon" value="$(arg sensing_horizon)" />
+    <param name="sensing_rate" value="10.0" />
+    <param name="estimation_rate" value="10.0" />
+    <param name="polar_resolution" value="0.2" />
+    <param name="yaw_fov" value="360.0" />
+    <param name="vertical_fov" value="90.0" />
+    <param name="min_raylength" value="1.0" />
+    <param name="livox_linestep" value="1.4" />
+    <param name="curvature_limit" value="100.0" />
+    <param name="hash_cubesize" value="5.0" />
+    <param name="use_avia_pattern" value="0" />
+    <param name="use_vlp32_pattern" value="0" />
+    <param name="use_minicf_pattern" value="1" />
+    <param name="use_os128_pattern" value="0" />
+
+    <param name="downsample_res" value="$(arg downsample_resolution_)" />
+
+    <param name="dynobj_enable" value="0" />
+    <param name="dynobject_size" value="0.8" />
+    <param name="dynobject_num" value="10" />
+    <param name="dyn_mode" value="2" /><!-- 0 for a=0, 1 for a=g, 2 for random walk -->
+    <param name="dyn_velocity" value="1.0" />
+
+    <param name="use_uav_extra_model" value="1" />
+
+    <!-- collision parameter -->
+    <param name="collisioncheck_enable" value="0" />
+    <param name="collision_range" value="0.3" />
+    <param name="output_pcd" value="0" />
+  </node>
+<node pkg="odom_viz" type="odom_viz" name="poscmd2odom">
+  
+</node>
+
+</launch>

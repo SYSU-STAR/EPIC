@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="odom_topic" value="/quad_0/lidar_slam/odom" />
+    <!-- set for mid 360 -->
+    <arg name="sensing_horizon_mid360" value="60.0" />
+    <arg name="use_mid360" value="true" />
+    <!-- trajectory server -->
+    <node pkg="waypoint_generator" name="waypoint_generator" type="waypoint_generator"
+        output="screen">
+        <remap from="~odom" to="$(arg odom_topic)" />
+        <remap from="~goal" to="/move_base_simple/goal" />
+        <remap from="~traj_start_trigger" to="/traj_start_trigger" />
+        <param name="waypoint_type" value="point" />
+    </node>
+
+    <node pkg="odom_visualization" name="quad0_odom_visualization"
+        type="odom_visualization" output="screen">
+        <remap from="~odom" to="$(arg odom_topic)" />
+        <param name="init_x" value="0.0" />
+        <param name="init_y" value="0.0" />
+        <param name="init_z" value="1.0" />
+        <param name="color/a" value="1.0" />
+        <param name="color/r" value="0.0" />
+        <param name="color/g" value="1.0" />
+        <param name="color/b" value="1.0" />
+        <param name="covariance_scale" value="100.0" />
+        <param name="robot_scale" value="1.0" />
+        <param name="quadrotor_name" value="quad0" />
+        <param name="drone_id" value="0" />
+        <param name="mesh_resource" value="package://odom_visualization/meshes/yunque.dae" />
+    </node>
+    <include file="$(find mars_drone_sim)/launch/garage.launch">
+        <arg name="sensing_horizon" value="$(arg sensing_horizon_mid360)" />
+    </include>
+
+    <include file="$(find epic_planner)/launch/rviz.launch">
+    </include>
+
+</launch>

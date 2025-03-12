@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find epic_planner)/launch/others.launch" />
+  <!-- <include file="$(find epic_planner)/launch/exploration_cave.launch" /> -->
+  <include file="$(find epic_planner)/launch/exploration_factory.launch" />
+</launch>

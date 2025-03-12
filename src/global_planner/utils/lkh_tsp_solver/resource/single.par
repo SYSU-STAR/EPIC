@@ -1,0 +1,5 @@
+PROBLEM_FILE = /home/lin/epic_released_version/EPIC/src/global_planner/utils/lkh_tsp_solver/resource/single.tsp
+GAIN23 = NO
+MOVE_TYPE = 2
+OUTPUT_TOUR_FILE =/home/lin/epic_released_version/EPIC/src/global_planner/utils/lkh_tsp_solver/resource/single.txt
+RUNS = 10
