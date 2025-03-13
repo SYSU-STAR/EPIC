@@ -5,7 +5,6 @@ global_planning/w_vdir: 0.0
 global_planning/w_yawdir: 0.0
 global_planning/w_firstnode: 0.2
 #viz
-bubble_topo/view_graph: false
 FrontierManager/view_cluster: false
 FrontierManager/view_frt: true
 # graph
