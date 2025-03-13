@@ -35,7 +35,7 @@ int FastExplorationFSM::callExplorationPlanner() {
 
   // debug
   if (planner_manager_->lidar_map_interface_->getDisToOcc(expl_manager_->ed_->next_goal_node_->center_) <
-      planner_manager_->topo_graph_->known_bubble_min_radius_) { // TODO:
+      planner_manager_->topo_graph_->bubble_min_radius_) { // TODO:
     cout << "410:  next goal in occ, update it" << endl;
     updateTopoAndGlobalPath();
     return FAIL;

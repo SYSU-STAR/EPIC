@@ -207,7 +207,7 @@ public:
   void updateOdomNode(Eigen::Vector3f &odom_pos, float &yaw);
   Eigen::Vector3f min_bd, max_bd, map_bd_min, map_bd_max;
   double min_x_, min_y_, min_z_; // 最小格子尺寸
-  double known_bubble_min_radius_, unknown_bubble_min_radius_, frt_bubble_radius_;
+  double bubble_min_radius_, frt_bubble_radius_;
   double init_region_size_x_, init_region_size_y_, init_region_size_z_; // 初始分区大小
   int x_len, y_len, z_len;                                              // 分区数量
   double max_radius, cube_discrete_size;

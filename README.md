@@ -77,4 +77,4 @@ We would like to express our gratitude to the following projects, which have pro
 - [GCOPTER](https://github.com/ZJU-FAST-Lab/GCOPTER): A general-purpose trajectory optimizer for multicopters, our local planner is based on it.
 - [FUEL](https://github.com/HKUST-Aerial-Robotics/FUEL): An efficient framework for fast UAV exploration from which our global planner draws inspiration.
 - [MARSIM](https://github.com/hku-mars/MARSIM): A lightweight point-realistic simulator for LiDAR-based UAVs upon which our simulator is built.
-
+- [FALCON](https://github.com/HKUST-Aerial-Robotics/FALCON): An efficient framework for fast UAV exploration, from which our method for constructing topological maps draws inspiration.

@@ -4,20 +4,7 @@
 	
 	<node pkg="epic_planner" name="exploration_node" type="exploration_node"
 		output="screen">
-		<!-- <rosparam file="$(find epic_planner)/config/office_param.yaml" command="load" /> -->
-		<!-- <rosparam file="$(find epic_planner)/config/factory_param.yaml" command="load" /> -->
-		<!-- <rosparam file="$(find epic_planner)/config/sysu_out.yaml" command="load" /> -->
-		<!-- <rosparam file="$(find epic_planner)/config/hotel.yaml" command="load" /> -->
-		<!-- <rosparam file="$(find epic_planner)/config/sysu_indoor.yaml" command="load" /> -->
 		<rosparam file="$(find epic_planner)/config/$(arg config_file)" command="load" />
-		<!-- <rosparam file="$(find epic_planner)/config/sy.yaml" command="load" /> -->
-		<!-- <rosparam file="$(find epic_planner)/config/cmu.yaml" command="load" /> -->
-		<!-- <rosparam file="$(find epic_planner)/config/garage.yaml" command="load" /> -->
-		<!-- <rosparam file="$(find epic_planner)/config/sysu_forest.yaml" command="load" /> -->
-		<!-- <rosparam file="$(find epic_planner)/config/star105.yaml" command="load" /> -->
-		<!-- <rosparam file="$(find epic_planner)/config/mbs_param.yaml" command="load" /> -->
-		<!-- <rosparam file="$(find epic_planner)/config/tunnel_param.yaml" command="load" /> -->
-
 		<!-- Fsm -->
 		<param name="fsm/thresh_replan" value="0.5" type="double" />
 		<param name="fsm/emergency_replan_control_error" value="1.5" type="double" />
@@ -25,36 +12,11 @@
 		<param name="fsm/debug_planner" value="false" type="bool" />
 		<!-- Exploration manager -->
 		<param name="exploration/tsp_dir" value="$(find lkh_tsp_solver)/resource" type="string" />
-		<param name="lidar_map/global_sphere_dir" value="$(find lidar_map)/global_unit_sphere"
-			type="string" />
 		<param name="bubble_astar/allocate_num" value="1000000" type="int" />
 		<param name="bubble_astar/lambda_heu" value="100.0" type="double" />
 		<param name="bubble_astar/debug" value="false" type="bool" />
 		<param name="bubble_astar/resolution_astar" value="0.2" type="double" />
-		<!-- <param name="bubble_astar/safe_distance" value="0.5" type="double" /> -->
-
 		<!-- topomap -->
-		<!-- 最小的格子的尺寸 -->
-		<!-- <param name="bubble_topo/min_x" value="0.5" type="double" />
-		<param name="bubble_topo/min_y" value="0.5" type="double" />
-		<param name="bubble_topo/min_z" value="0.5" type="double" /> -->
-
-		<!-- <param name="bubble_topo/min_x" value="1.2" type="double" />
-		<param name="bubble_topo/min_y" value="1.2" type="double" />
-		<param name="bubble_topo/min_z" value="0.75" type="double" /> -->
-
-		<!-- <param name="bubble_topo/known_bubble_min_radius" value="0.5" type="double" />
-		<param name="bubble_topo/unknown_bubble_min_radius" value="0.5" type="double" />
-		<param name="bubble_topo/init_region_size_x" value="2.0" type="double" />
-		<param name="bubble_topo/init_region_size_y" value="2.0" type="double" />
-		<param name="bubble_topo/init_region_size_z" value="1.0" type="double" /> -->
-
-		<!-- <param name="bubble_topo/init_region_size_x" value="3.0" type="double" />
-		<param name="bubble_topo/init_region_size_y" value="3.0" type="double" />
-		<param name="bubble_topo/init_region_size_z" value="2.2" type="double" /> -->
-		<!-- <param name="bubble_topo/view_graph" value="false" type="bool" /> -->
-		<!-- generateBubble判断cube是否被bubble覆盖时离散格子的最小尺寸,设小了时间开销会非常大 -->
 		<param name="bubble_topo/cube_discrete_size" value="0.3" type="double" />
-		<param name="bubble_topo/debug_output" value="false" type="bool" />
 	</node>
 </launch>

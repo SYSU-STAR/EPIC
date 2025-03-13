@@ -11,8 +11,7 @@ FrontierManager/view_frt: true
 bubble_topo/min_x: 0.6
 bubble_topo/min_y: 0.6
 bubble_topo/min_z: 0.3
-bubble_topo/known_bubble_min_radius: 0.6
-bubble_topo/unknown_bubble_min_radius: 0.6
+bubble_topo/bubble_min_radius: 0.61
 bubble_topo/init_region_size_x: 2.5
 bubble_topo/init_region_size_y: 2.5
 bubble_topo/init_region_size_z: 2.0
@@ -58,8 +57,8 @@ box_0/up: [182.0, 150.2, 3.8]
 dead_area_num: 0
 # trajectory param
 max_traj_len: 10.0
-DilateRadiusSoft: 0.70 # minco threshold
-DilateRadiusHard: 0.55 # collision check threshold
+DilateRadiusSoft: 0.6 # minco threshold
+DilateRadiusHard: 0.5 # collision check threshold
 MaxCorridorSize: 3.5
 MaxVelMag: 4.0
 maxBdrMag: 10000.0

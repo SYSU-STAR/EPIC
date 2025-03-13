@@ -274,24 +274,23 @@ inline bool firi(const Eigen::MatrixX4d& bd, const Eigen::Matrix3Xd& pc,
 	int nH = 0;
 
 	for (int loop = 0; loop < iterations; ++loop) {
-		const Eigen::Matrix3d forward = r.cwiseInverse().asDiagonal() * R.transpose(); // D^{-1}A^{T}
-		const Eigen::Matrix3d backward = R * r.asDiagonal();                           // AD
-		// boundary的方向向量映射到椭球坐标系 TODO: forwardB是什么
-		const Eigen::MatrixX3d forwardB = bd.leftCols<3>() * backward; // 椭球系的六个方向？
+		const Eigen::Matrix3d forward = r.cwiseInverse().asDiagonal() * R.transpose(); 
+		const Eigen::Matrix3d backward = R * r.asDiagonal();                           
+		const Eigen::MatrixX3d forwardB = bd.leftCols<3>() * backward; 
 
 		const Eigen::VectorXd forwardD = bd.rightCols<1>() + bd.leftCols<3>() * p;
 
-		const Eigen::Matrix3Xd forwardPC = forward * (pc.colwise() - p); // 伪代码第10行
+		const Eigen::Matrix3Xd forwardPC = forward * (pc.colwise() - p); 
 
-		const Eigen::Vector3d fwd_a = forward * (a - p); // 理解为伪代码第7行
+		const Eigen::Vector3d fwd_a = forward * (a - p); 
 		const Eigen::Vector3d fwd_b = forward * (b - p);
 
 		const Eigen::VectorXd distDs = forwardD.cwiseAbs().cwiseQuotient(forwardB.rowwise().norm());
-		Eigen::MatrixX4d tangents(N, 4); // X行4列，每行是一个平面，球心和这个障碍点的支撑平面
-		Eigen::VectorXd distRs(N);       // 满足这个点云障碍和ab可行约束的球的最大半径
+		Eigen::MatrixX4d tangents(N, 4); 
+		Eigen::VectorXd distRs(N);       
 
-		for (int i = 0; i < N; i++) { // N是障碍物的个数
-			distRs(i) = forwardPC.col(i).norm();                                    // 伪代码第11行的dist(coint(H(a)), 0)
+		for (int i = 0; i < N; i++) { 
+			distRs(i) = forwardPC.col(i).norm();                                    
 			tangents(i, 3) = -distRs(i);                                            
 			tangents.block<1, 3>(i, 0) = forwardPC.col(i).transpose() / distRs(i);  
 			if (tangents.block<1, 3>(i, 0).dot(fwd_a) + tangents(i, 3) > epsilon) { 
@@ -302,19 +301,19 @@ inline bool firi(const Eigen::MatrixX4d& bd, const Eigen::Matrix3Xd& pc,
 				tangents(i, 3) = -distRs(i);
 				tangents.block<1, 3>(i, 0) /= distRs(i);
 			}
-			if (tangents.block<1, 3>(i, 0).dot(fwd_b) + tangents(i, 3) > epsilon) { // 对b做同样的操作
+			if (tangents.block<1, 3>(i, 0).dot(fwd_b) + tangents(i, 3) > epsilon) { 
 				const Eigen::Vector3d delta = forwardPC.col(i) - fwd_b;
 				tangents.block<1, 3>(i, 0) = fwd_b - (delta.dot(fwd_b) / delta.squaredNorm()) * delta;
 				distRs(i) = tangents.block<1, 3>(i, 0).norm();
 				tangents(i, 3) = -distRs(i);
 				tangents.block<1, 3>(i, 0) /= distRs(i);
 			}
-			if (tangents.block<1, 3>(i, 0).dot(fwd_a) + tangents(i, 3) > epsilon) { // 如果调整完b,a出去了
+			if (tangents.block<1, 3>(i, 0).dot(fwd_a) + tangents(i, 3) > epsilon) { 
 				tangents.block<1, 3>(i, 0) = (fwd_a - forwardPC.col(i)).cross(fwd_b - forwardPC.col(i)).normalized();
 				tangents(i, 3) = -tangents.block<1, 3>(i, 0).dot(fwd_a);
 				tangents.row(i) *= tangents(i, 3) > 0.0 ? -1.0 : 1.0;
 			}
-		}// tagents.row(i)是伪代码第11行的ai
+		}
 
 		Eigen::Matrix<uint8_t, -1, 1> bdFlags = Eigen::Matrix<uint8_t, -1, 1>::Constant(M, 1);
 		Eigen::Matrix<uint8_t, -1, 1> pcFlags = Eigen::Matrix<uint8_t, -1, 1>::Constant(N, 1);

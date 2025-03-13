@@ -32,8 +32,7 @@ void TopoGraph::init(ros::NodeHandle &nh, LIOInterface::Ptr &lidar_map, Parallel
   nh.param("bubble_topo/init_region_size_x", init_region_size_x_, 0.0);
   nh.param("bubble_topo/init_region_size_y", init_region_size_y_, 0.0);
   nh.param("bubble_topo/init_region_size_z", init_region_size_z_, 0.0);
-  nh.param("bubble_topo/known_bubble_min_radius", known_bubble_min_radius_, 0.5);
-  nh.param("bubble_topo/unknown_bubble_min_radius", unknown_bubble_min_radius_, 0.5);
+  nh.param("bubble_topo/bubble_min_radius", bubble_min_radius_, 0.5);
   nh.param("bubble_topo/frontier_bubble_min_radius", frt_bubble_radius_, 0.5);
   nh.param("bubble_topo/cube_discrete_size", cube_discrete_size, 0.3);
 
@@ -808,7 +807,7 @@ void TopoGraph::updateSkeleton() {
         check_pt_flag[i] = true;
     }
     generateBubble(lb, hb, tmp_bubbles, check_pt_flag);
-    BubbleUnionSet::Ptr union_set_ = std::make_shared<BubbleUnionSet>(known_bubble_min_radius_); // TODO: 这个参数是topo节点2occ的最小距离
+    BubbleUnionSet::Ptr union_set_ = std::make_shared<BubbleUnionSet>(bubble_min_radius_); // TODO: 这个参数是topo节点2occ的最小距离
     vector<TopoNode::Ptr> new_nodes_region;
     Eigen::Vector3f region_center = (lb + hb) * 0.5;
     union_set_->unionSetCluster(tmp_bubbles, new_nodes_region, region_center);

@@ -11,14 +11,13 @@ FrontierManager/view_frt: false
 bubble_topo/min_x: 1.11
 bubble_topo/min_y: 1.11
 bubble_topo/min_z: 0.51
-bubble_topo/known_bubble_min_radius: 0.65
-bubble_topo/unknown_bubble_min_radius: 0.65
+bubble_topo/bubble_min_radius: 0.61
 bubble_topo/init_region_size_x: 3.3
 bubble_topo/init_region_size_y: 3.3
 bubble_topo/init_region_size_z: 2.0
 bubble_topo/cube_discrete_size: 0.4
 bubble_topo/odom_node_distance: 3.0
-bubble_astar/safe_distance: 0.9
+bubble_astar/safe_distance: 0.6
 # map param
 max_update_region_num: 99999999
 frontier/candidate_dphi: 0.26
@@ -58,7 +57,7 @@ box_0/up: [176, 124, 34.1]
 dead_area_num: 0
 # trajectory param
 max_traj_len: 10.0
-DilateRadiusSoft: 0.7 # corrido
+DilateRadiusSoft: 0.6 # corrido
 DilateRadiusHard: 0.45 # collision check threshold
 MaxCorridorSize: 4.0
 MaxVelMag: 4.0

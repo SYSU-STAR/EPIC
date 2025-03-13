@@ -48,7 +48,7 @@ void TopoGraph::generateBubble(const Eigen::Vector3f &low_bd,
     return;
   double dis2occ = lidar_map_interface_->getDisToOcc(center);
 
-  if (dis2occ < unknown_bubble_min_radius_) {
+  if (dis2occ < bubble_min_radius_) {
     // 小到没有必要生成球，给你换一个位置吧
     splitCubeBubbleGeneration(low_bd, high_bd, bubble_node_vec, check_flags);
     return;
@@ -68,7 +68,7 @@ void TopoGraph::generateBubble(const Eigen::Vector3f &low_bd,
     // 说明已经覆盖了全空间，直接return
     return;
   }
-  if (bubble_node->radius_ < known_bubble_min_radius_) {
+  if (bubble_node->radius_ < bubble_min_radius_) {
     splitCubeBubbleGeneration(low_bd, high_bd, bubble_node_vec, check_flags);
     return;
   }
