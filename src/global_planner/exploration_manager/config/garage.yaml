@@ -5,6 +5,7 @@ global_planning/w_vdir: 1.2
 global_planning/w_yawdir: 0.0
 global_planning/w_firstnode: 0.2
 #viz
+view_graph: false
 FrontierManager/view_cluster: false
 FrontierManager/view_frt: true
 # graph

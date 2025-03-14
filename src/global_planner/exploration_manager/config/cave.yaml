@@ -5,6 +5,7 @@ global_planning/w_vdir: 0.0
 global_planning/w_yawdir: 0.0
 global_planning/w_firstnode: 0.2
 # Visualization debugging has high overhead and is not recommended to be enabled.
+view_graph: false
 FrontierManager/view_cluster: false
 FrontierManager/view_frt: false
 # graph

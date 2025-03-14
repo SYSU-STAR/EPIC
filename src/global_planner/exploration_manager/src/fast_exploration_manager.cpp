@@ -49,6 +49,7 @@ void FastExplorationManager::initialize(
   nh.param("exploration/tsp_dir", ep_->tsp_dir_, string("null"));
   nh.getParam("viewpoint_param/global_viewpoint_num",
               ep_->global_viewpoint_num_);
+  nh.getParam("view_graph", ep_->view_graph_);
   nh.getParam("viewpoint_param/local_viewpoint_num", ep_->local_viewpoint_num_);
   nh.getParam("global_planning/w_vdir", ep_->w_vdir_);
   nh.getParam("global_planning/w_yawdir", ep_->w_yawdir_);
@@ -333,6 +334,7 @@ int FastExplorationManager::planGlobalPath(const Eigen::Vector3d &pos,
   planner_manager_->topo_graph_->removeNodes(viewpoints);
   planner_manager_->graph_visualizer_->vizTour(ed_->global_tour_, VizColor::RED,
                                                "global");
+
   planner_manager_->local_data_.end_yaw_ =
       viewpoint_reachable[indices[1] - 1]->yaw_;
   updateGoalNode();

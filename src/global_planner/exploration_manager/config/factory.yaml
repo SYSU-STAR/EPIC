@@ -5,6 +5,7 @@ global_planning/w_vdir: 0.0
 global_planning/w_yawdir: 0.0
 global_planning/w_firstnode: 0.2
 #viz
+view_graph: false
 FrontierManager/view_cluster: false
 FrontierManager/view_frt: true
 # graph
@@ -52,7 +53,7 @@ ViewpointManager/sample_pillar_circle_sample_num: 4
 ViewpointManager/local_tsp_size: 10
 # area
 box_num: 1
-box_0/down: [-16, -27, 0.0]
+box_0/down: [-16, -27, 0.8]
 box_0/up: [13, 26, 4.0]
 dead_area_num: 0
 max_traj_len: 10.0

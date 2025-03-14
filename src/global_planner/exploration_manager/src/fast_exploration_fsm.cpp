@@ -312,6 +312,8 @@ void FastExplorationFSM::updateTopoAndGlobalPath() {
        << endl;
 
   planner_manager_->graph_visualizer_->vizBox(planner_manager_->topo_graph_);
+  if(expl_manager_->ep_->view_graph_)
+    planner_manager_->graph_visualizer_->vizGraph(planner_manager_->topo_graph_);
   std_msgs::Float32 time_cost;
   double time_cost_now = (t5 - t2).toSec() * 1000;
   time_cost.data = time_cost_now;

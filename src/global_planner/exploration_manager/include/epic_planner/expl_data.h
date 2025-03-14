@@ -64,6 +64,7 @@ struct ExplorationParam {
   int viewpoint_connection_num_;
   double a_avg_, v_max_, yaw_v_max_, viewpoint_gian_lambda_;
   double w_vdir_, w_yawdir_;
+  bool view_graph_;
   string tsp_dir_; // resource dir of tsp solver
 };
 
