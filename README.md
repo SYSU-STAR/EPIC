@@ -57,10 +57,17 @@ Please kindly star ⭐️ this project if it helps you. We take great efforts to
 #### Clone our repository and build
 ```bash
 git clone https://github.com/SYSU-STAR/EPIC.git
+cd EPIC 
 catkin build
 ```
 #### Download dataset 
-Download simulation maps from my [Google cloud](https://drive.google.com/drive/folders/1tuoVo8PL1m2cmmufkHpu4e7hK36WhJs3?usp=drive_link), move them to `MARSIM/map_generator/resource`.
+#### Download dataset 
+Download simulation maps from my [Google cloud](https://drive.google.com/drive/folders/1tuoVo8PL1m2cmmufkHpu4e7hK36WhJs3?usp=drive_link), create the folder `MARSIM/map_generator/resource` if it doesn't exist, and move the downloaded maps to this folder.
+
+```bash
+mkdir -p MARSIM/map_generator/resource
+mv /path/to/downloaded/maps/*.pcd MARSIM/map_generator/resource/
+```
 
 #### Run program 
 ```bash
