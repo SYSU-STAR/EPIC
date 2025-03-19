@@ -1,3 +1,11 @@
+<!--
+ * @Author: ning-zelin zl.ning@qq.com
+ * @Date: 2025-03-12 21:29:31
+ * @LastEditors: ning-zelin zl.ning@qq.com
+ * @LastEditTime: 2025-03-19 18:49:34
+ * @FilePath: /EPIC/README.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <div align = "center">
   <h1>
     EPIC: Exploring on Point Clouds 
@@ -60,7 +68,6 @@ git clone https://github.com/SYSU-STAR/EPIC.git
 cd EPIC 
 catkin build
 ```
-#### Download dataset 
 #### Download dataset 
 Download simulation maps from my [Google cloud](https://drive.google.com/drive/folders/1tuoVo8PL1m2cmmufkHpu4e7hK36WhJs3?usp=drive_link), create the folder `MARSIM/map_generator/resource` if it doesn't exist, and move the downloaded maps to this folder.
 
