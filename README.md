@@ -2,9 +2,10 @@
  * @Author: ning-zelin zl.ning@qq.com
  * @Date: 2025-03-12 21:29:31
  * @LastEditors: ning-zelin zl.ning@qq.com
- * @LastEditTime: 2025-03-19 18:49:34
- * @FilePath: /EPIC/README.md
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @LastEditTime: 2025-04-03 16:54:30
+ * @Description: 
+ * 
+ * Copyright (c) 2025 by ning-zelin zl.ning@qq.com, All Rights Reserved. 
 -->
 <div align = "center">
   <h1>
@@ -83,6 +84,9 @@ source ./devel/setup.zsh && roslaunch epic_planner garage.launch
 You can replace `garage` with other maps. We provide three test scenarios: `garage`, `cave` and `factory`.
 
 Our simulation environment is developed based on the GPU version of MARSIM. So if you don't have a GPU, you may need to make some necessary modifications to the simulator.
+## ⚠️ Known Issues
+
+* After launching the program, if the terminal keeps displaying a `no odom` warning, this is likely due to graphics card compatibility issues. Please refer to [this issue](https://github.com/SYSU-STAR/EPIC/issues/6) for solutions.
 
 
 ## 🤓 Acknowledgments
