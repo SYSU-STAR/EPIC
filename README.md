@@ -28,11 +28,13 @@
     <sup>*</sup>Equal Contribution;&nbsp;
     <sup>†</sup>Corresponding Author
   </p>
+  <a href="https://ieeexplore.ieee.org/document/10945408"><img src="https://img.shields.io/badge/Paper-IEEE RAL-004088.svg"/></a>
   <a href='https://arxiv.org/pdf/2410.14203.pdf'><img src='https://img.shields.io/badge/arXiv-2410.14203-red' alt='arxiv'></a>
   <a href='https://www.bilibili.com/video/BV1nrx5eaESY/?spm_id_from=333.1387.homepage.video_card.click&vd_source=07945b0b56417e213633c9332f4f4716'><img alt="Video" src="https://img.shields.io/badge/BiliBili-Video-purple"/></a>
 </div>
 
 ## 💡 News
+* **[2025.03.28]** **EPIC** is officially published by RAL ! 
 * **[2025.03.12]** The source code of **EPIC** is released !
 * **[2025.03.08]** **EPIC** is accepted by RAL 2025 🚀 !
 
@@ -45,12 +47,17 @@
 Please cite our paper if you use this project in your research:
 
 ```
-@article{geng2024epic,
-  title={EPIC: A Lightweight LiDAR-Based UAV Exploration Framework for Large-Scale Scenarios},
+@ARTICLE{10945408,
   author={Geng, Shuang and Ning, Zelin and Zhang, Fu and Zhou, Boyu},
-  journal={arXiv preprint arXiv:2410.14203},
-  year={2024}
-}
+  journal={IEEE Robotics and Automation Letters}, 
+  title={EPIC: A Lightweight LiDAR-Based AAV Exploration Framework for Large-Scale Scenarios}, 
+  year={2025},
+  volume={10},
+  number={5},
+  pages={5090-5097},
+  keywords={Point cloud compression;Autonomous aerial vehicles;Memory management;Laser radar;Trajectory;Surface treatment;Real-time systems;Planning;Navigation;Faces;Aerial systems: perception and autonomy;motion and path planning;aerial systems: applications},
+  doi={10.1109/LRA.2025.3555878}}
+
 ```
 Please kindly star ⭐️ this project if it helps you. We take great efforts to develop and maintain it 😁.
 
