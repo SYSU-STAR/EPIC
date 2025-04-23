@@ -14,7 +14,7 @@
 </div>
 <div align = "center">
   <h2>
-    A Lightweight LiDAR-Based UAV Exploration Framework for Large-Scale Scenarios
+    A Lightweight LiDAR-Based AAV Exploration Framework for Large-Scale Scenarios
   </h2>
 </div>
 <div align="center">
@@ -40,7 +40,7 @@
 
 ## 📜 Introduction
 
-**EPIC** (**E**xploring on **P**o**I**nt **C**louds) is a lightweight LiDAR-based UAV exploration framework that directly exploits point cloud data to explore large-scale environments. Experimental results demonstrate that our framework achieves faster exploration while significantly reducing memory consumption. (Click the image to view the video)
+**EPIC** (**E**xploring on **P**o**I**nt **C**louds) is a lightweight LiDAR-based AAV (Autonomous Aerial Vehicle) exploration framework that directly exploits point cloud data to explore large-scale environments. Experimental results demonstrate that our framework achieves faster exploration while significantly reducing memory consumption. (Click the image to view the video)
 
 [![video](misc/overview.png)](https://www.bilibili.com/video/BV1nrx5eaESY/?spm_id_from=333.1387.homepage.video_card.click&vd_source=07945b0b56417e213633c9332f4f4716)
 
