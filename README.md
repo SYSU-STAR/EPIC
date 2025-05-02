@@ -88,6 +88,8 @@ mv /path/to/downloaded/maps/*.pcd MARSIM/map_generator/resource/
 ```bash
 source ./devel/setup.zsh && roslaunch epic_planner garage.launch
 ```
+Trigger the quadrotor by the `2D Nav Goal` in Rviz.
+
 You can replace `garage` with other maps. We provide three test scenarios: `garage`, `cave` and `factory`.
 
 Our simulation environment is developed based on the GPU version of MARSIM. So if you don't have a GPU, you may need to make some necessary modifications to the simulator.
